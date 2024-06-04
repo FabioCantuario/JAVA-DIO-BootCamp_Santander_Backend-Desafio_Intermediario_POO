@@ -21,7 +21,7 @@ public class RegistroTransacoesComStream {
 		for (int i = 1; i <= quantidadeTransacoes; i++) {
 
 			System.out.print("Escolha a opção (D/S): ");
-			char tipoTransacao = scanner.next().charAt(0);
+			char tipoTransacao = scanner.next().toUpperCase().charAt(0);
 
 			System.out.print("Digite o valor da Transação: ");
 			double valorTransacao = scanner.nextDouble();
@@ -31,9 +31,10 @@ public class RegistroTransacoesComStream {
 			Transacao transacao = new Transacao(tipoTransacao, valorTransacao);
 
 			// Verifica e atualiza o saldo da conta com base no tipo de transação
-			if (transacao.getTipo() == 'd' || transacao.getTipo() == 'D') {
+			//if(transacao.getTipo() == 'D') {
+			if (transacao.getTipo() == 'D') {
 				saldo += valorTransacao;
-			} else if (transacao.getTipo() == 's' || transacao.getTipo() == 'S') {
+			} else if (transacao.getTipo()  == 'S') {
 				saldo -= valorTransacao;
 			}
 
